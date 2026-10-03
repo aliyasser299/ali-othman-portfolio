@@ -48,5 +48,5 @@ def render_gallery(projects):
     (ROOT / 'index.html').write_text(page)
 
 if __name__ == '__main__':
-    data = (ROOT / 'assets/projects.js').read_text().split('export const projects = ', 1)[1].rstrip().rstrip(';')
+    data = (ROOT / 'assets/projects.js').read_text().split('const projects = ', 1)[1].rstrip().rstrip(';')
     render_gallery(json.loads(data))

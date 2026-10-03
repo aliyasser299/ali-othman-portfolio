@@ -1,4 +1,4 @@
-import { projects } from './projects.js';
+(() => {
 
 const dialog = document.querySelector('#player-dialog');
 const player = document.querySelector('#project-player');
@@ -107,3 +107,4 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { rootMargin: '-10% 0px -65% 0px', threshold: 0 });
 ['work', 'about', 'contact'].forEach(id => sectionObserver.observe(document.querySelector(`#${id}`)));
 document.querySelector('#year').textContent = new Date().getFullYear();
+})();

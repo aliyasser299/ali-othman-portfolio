@@ -10,7 +10,7 @@ A static portfolio for graphic design, video editing, and motion graphics. Built
 python3 tools/serve.py
 ```
 
-Open **http://127.0.0.1:8000**. The preview server supports byte ranges for video seeking. Serve over HTTP rather than opening `index.html` through `file://`, because the player uses JavaScript modules.
+Open **http://127.0.0.1:8000**. The preview server supports byte ranges for video seeking. The player uses ordered, deferred scripts so its controls also work when opening `index.html` directly from disk. HTTP preview is recommended to match production serving and seeking behavior.
 
 ## Production files
 
