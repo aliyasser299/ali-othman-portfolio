@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+dist/
+
+# Preserve original exports locally; publish the optimized viewing copies.
+assets/videos/
