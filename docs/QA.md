@@ -47,4 +47,20 @@ Verified category filtering and project counts, portrait rail navigation, hero v
 - All real contact/social links match the owner’s supplied information.
 - Static gallery markup and direct video links are included for visitors without JavaScript.
 
-Testing used responsive browser emulation, not physical iOS/Android devices. Native video control appearance is determined by the visitor’s browser. Final domain-specific canonical/sharing URLs and the sitemap are generated with the production build’s `--base-url` option once a public domain is chosen.
+Testing used responsive browser emulation, not physical iOS/Android devices. Native video control appearance is determined by the visitor’s browser. Domain-specific canonical/sharing URLs and the sitemap are generated with the production build’s `--base-url` option.
+
+## Public deployment verification
+
+Published to **https://aliyasser299.github.io/ali-othman-portfolio/** from the public `aliyasser299/ali-othman-portfolio` repository. GitHub Actions deployment succeeded for commit `2f4cb1c` on 3 October 2026.
+
+- Anonymous HTTPS requests received **200**, with no account, cookies, or authentication. All **41 production files** returned 200 and matched the local build's byte sizes and media MIME types.
+- Every MP4 passed byte-range checks at both the beginning and the end: **28 successful 206 responses**, with exact content ranges and 1,024-byte bodies.
+- Every one of the **14 gallery Play buttons** opened the correct project, decoded its original viewing-copy dimensions, and started playback with an advancing timestamp and no media error. The hero Play button also started its identity animation.
+- Native pause/resume, sound mute/unmute, and keyboard seeking worked on the published trailer. Portrait playback at **375 px** preserved the complete frame with `object-fit: contain`.
+- Published layouts passed the seven target widths above. Visually inspected desktop, tablet, mobile hero/contact, and portrait player layouts. No page or heading overflow and no broken poster images were detected.
+- Verified all filter counts (3 / 4 / 7 / 14), mobile filtering, portrait rail arrows, Work/About/Contact links, supplied email/social URLs, close button, Escape, backdrop dismissal, focus return, and source release after closing. Keyboard focus moved between the dialog's close button and native player in both directions.
+- No console warnings or errors in the public site. The initial player has no source. Canonical URL, Open Graph URL/image, robots file, and sitemap point to the final HTTPS site.
+
+The owner's direct-from-disk preview exposed a JavaScript module-loading limitation. Replaced the module import with ordered deferred classic scripts, and updated both manifest generators so regeneration preserves the fix. Verified the revised scripts over local HTTP and public HTTPS. Direct `file://` browser inspection is unavailable in the automation environment.
+
+The native fullscreen button is available; the browser automation did not provide a conclusive fullscreen transition check. Physical iOS/Android playback and native fullscreen remain device-specific checks.
